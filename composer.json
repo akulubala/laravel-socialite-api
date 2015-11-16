@@ -1,0 +1,29 @@
+{
+    "name": "ray-cheng/laravel-socialite-api",
+    "description": "package for laravel 5.1 retrieve user datas serve for restful api authentication.",
+    "license": "MIT",
+     "keywords": [
+        "laravel",
+        "api",
+        "authentication",
+        "oauth2",
+        "socialete",
+        "restful"
+    ],
+    "authors": [
+        {
+            "name": "Ray Cheng",
+            "email": "fabulous_php@g163.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.5.0",
+        "socialiteproviders/manager": "~1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "LaravelSocialiteApi\\": "src/"
+        }
+    }
+}

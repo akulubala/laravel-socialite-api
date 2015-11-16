@@ -1,0 +1,12 @@
+<?php
+namespace LaravelSocialiteApi\SocialiteProvider;
+
+use SocialiteProviders\{{ provider_name }}\Provider;
+
+class {{ provider_name }} extends Provider
+{
+    public function retrieveUserByToken($token)
+    {
+        return $this->getUserByToken($token);
+    }
+}
