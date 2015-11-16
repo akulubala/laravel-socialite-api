@@ -3,7 +3,7 @@ This package is aim to retrive user data by access token when use OAuth2 Login, 
 
 
 ##Install
-composer require Ray-Cheng/laravel-socialite-api
+    composer require ray-cheng/laravel-socialite-api
 
 open config/app.php
 add 
@@ -30,6 +30,7 @@ php artisan list
     'SocialiteProviders\Manager\SocialiteWasCalled' => [
             'LaravelSocialiteApi\ExtendSocialite\WeixinWeb@handle',
      ]
+
 ## test
 		$token is passed by client app 
-        $weixinUserInfo = Socialite::with('douban')->retrieveUserByToken($token);
+        $weixinUserInfo = Socialite::with('weixinweb')->retrieveUserByToken($token);
