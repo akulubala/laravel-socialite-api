@@ -4,11 +4,11 @@ namespace LaravelSocialiteApi\ExtendSocialite;
 
 use SocialiteProviders\Manager\SocialiteWasCalled;
 
-class {{ provider_name }}ExtendSocialite
+class {{ provider_name }}
 {
     public function handle(SocialiteWasCalled $socialiteWasCalled)
     {
-        $socialiteWasCalled->extendSocialite(snake_case('{{ provider_name }}', '-'), __NAMESPACE__.'\SocialiteProvider\{{ provider_name }}');
+        $socialiteWasCalled->extendSocialite(snake_case('{{ provider_name }}', '-'), 'LaravelSocialiteApi\SocialiteProvider\{{ provider_name }}');
     }
 }
 

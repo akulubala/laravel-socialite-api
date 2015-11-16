@@ -107,6 +107,6 @@ class SocialiteMakeCommand extends Command
 
     private function getProviderPath()
     {
-        return dirname(__DIR__) . '/SocialiteProvider/' . $this->providerName .'ExtendSocialite.php';
+        return dirname(__DIR__) . '/SocialiteProvider/' . $this->providerName .'.php';
     }
 }
