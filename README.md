@@ -14,18 +14,21 @@ add
  
  
 ## check installed
+
 php artisan list
 
 ##commands
-  laravel-socialite-api:clear  provider name
-  laravel-socialite-api:make   provider name
-   
-** provider name must follow http://socialiteproviders.github.io/#providers
 
-##finily example for App\Providers\EventServiceProvider $listen property
+  laravel-socialite-api:clear  providerName    
+  laravel-socialite-api:make   providerName    
+   
+** providerName must follow http://socialiteproviders.github.io/#providers principle
+
+##add event handler and listener to App\Providers\EventServiceProvider $listen property
+
 
     'SocialiteProviders\Manager\SocialiteWasCalled' => [
-            'LaravelSocialiteApi\ExtendSocialite\WeixinWebExtendSocialite@handle',
+            'LaravelSocialiteApi\ExtendSocialite\WeixinWeb@handle',
      ]
 ## test
 		$token is passed by client app 
