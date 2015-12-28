@@ -5,8 +5,19 @@ use SocialiteProviders\{{ provider_name }}\Provider;
 
 class {{ provider_name }} extends Provider
 {
-    public function retrieveUserByToken($token)
+    public function user($accessToken = null)
     {
-        return $this->getUserByToken($token);
+        if ($this->hasInvalidState()) {
+            throw new InvalidStateException;
+        }
+        if ($accessToken === null) {
+        	$user = $this->mapUserToObject($this->getUserByToken(
+	            $token = $this->getAccessToken($this->getCode());
+	        ));
+        } else {
+        	$user = $this->mapUserToObject($this->getUserByToken($accessToken));
+        }
+        
+        return $user->setToken($token);
     }
 }
