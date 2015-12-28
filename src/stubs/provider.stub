@@ -12,10 +12,10 @@ class {{ provider_name }} extends Provider
         }
 
         if ($accessToken === null) {
-        	$accessToken = $this->getAccessToken($this->getCode())
+        	$accessToken = $this->getAccessToken($this->getCode());
         }
     	$user = $this->mapUserToObject($this->getUserByToken($accessToken));
         
-        return $user->setToken($token);
+        return $user->setToken($accessToken);
     }
 }
