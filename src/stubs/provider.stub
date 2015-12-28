@@ -10,13 +10,11 @@ class {{ provider_name }} extends Provider
         if ($this->hasInvalidState()) {
             throw new InvalidStateException;
         }
+
         if ($accessToken === null) {
-        	$user = $this->mapUserToObject($this->getUserByToken(
-	            $token = $this->getAccessToken($this->getCode());
-	        ));
-        } else {
-        	$user = $this->mapUserToObject($this->getUserByToken($accessToken));
+        	$accessToken = $this->getAccessToken($this->getCode())
         }
+    	$user = $this->mapUserToObject($this->getUserByToken($accessToken));
         
         return $user->setToken($token);
     }
