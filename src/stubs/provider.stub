@@ -5,10 +5,14 @@ use SocialiteProviders\{{ provider_name }}\Provider;
 
 class {{ provider_name }} extends Provider
 {
-    public function user($accessToken = null)
+    public function user($accessToken = null, $openId = null)
     {
         if ($this->hasInvalidState()) {
             throw new InvalidStateException;
+        }
+
+        if ($openId !== null) {
+            $this->openId = $openId;
         }
 
         if ($accessToken === null) {
