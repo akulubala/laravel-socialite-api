@@ -19,8 +19,8 @@ php artisan list
 
 ##commands
 
-  laravel-socialite-api:clear  providerName    
-  laravel-socialite-api:make   providerName    
+        laravel-socialite-api:clear  providerName   
+        laravel-socialite-api:make   providerName    
    
 ** providerName must follow http://socialiteproviders.github.io/#providers principle
 
@@ -28,9 +28,12 @@ php artisan list
 
 
         'SocialiteProviders\Manager\SocialiteWasCalled' => [
-            'LaravelSocialiteApi\ExtendSocialite\WeixinWeb@handle',
+            'LaravelSocialiteApi\ExtendSocialite\Weibo@handle',
+            'LaravelSocialiteApi\ExtendSocialite\Weixin@handle',
         ]
 
 ## test
-		$token is passed by client app 
-        $weixinUserInfo = Socialite::with('weixinweb')->stateless->user($token);
+
+        $userInfo = Socialite::with('weibo')->stateless->user($accessToken);
+        some oauth server like weixin need both $token and  $openid to get userinfos, so we need pass openid also.
+        $userInfo = Socialite::with('weibo')->stateless->user($accessToken, $openId);
