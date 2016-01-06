@@ -102,11 +102,19 @@ class SocialiteMakeCommand extends Command
 
     private function getExtendSocialitePath()
     {
-        return dirname(__DIR__) . '/ExtendSocialite/' . $this->providerName . '.php';
+        $path = app_path() . '/Services' . '/LaravelSocialiteApi/ExtendSocialite';
+        if (!($this->files->isWritable($path))) {
+            $this->files->makeDirectory($path, 0755, true ,true);
+        }
+        return  $path . '/' .$this->providerName . '.php';
     }
 
     private function getProviderPath()
     {
-        return dirname(__DIR__) . '/SocialiteProvider/' . $this->providerName .'.php';
+        $path = app_path() . '/Services' . '/LaravelSocialiteApi/SocialiteProvider';
+        if (!($this->files->isWritable($path))) {
+            $this->files->makeDirectory($path, 0755, true ,true);
+        }
+        return  $path . '/' . $this->providerName .'.php';
     }
 }

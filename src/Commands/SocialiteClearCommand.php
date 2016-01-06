@@ -34,7 +34,7 @@ class SocialiteClearCommand extends Command
     public function __construct(Filesystem $file, Composer $composer)
     {
         parent::__construct();
-        $this->file = $file;
+        $this->files = $file;
         $this->composer = $composer;
 
     }
@@ -64,12 +64,12 @@ class SocialiteClearCommand extends Command
 
     private function clear()
     {
-        if ($this->file->exists($this->getExtendSocialitePath())) {
-            $this->file->delete($this->getExtendSocialitePath());
+        if ($this->files->exists($this->getExtendSocialitePath())) {
+            $this->files->delete($this->getExtendSocialitePath());
         }
 
-        if ($this->file->exists($this->getProviderPath())) {
-            $this->file->delete($this->getProviderPath());
+        if ($this->files->exists($this->getProviderPath())) {
+            $this->files->delete($this->getProviderPath());
         }
 
         $this->info('clear successfully');
@@ -77,11 +77,19 @@ class SocialiteClearCommand extends Command
 
     private function getExtendSocialitePath()
     {
-        return dirname(__DIR__) . '/ExtendSocialite/' . $this->providerName . '.php';
+        $path = app_path() . '/Services' . '/LaravelSocialiteApi/ExtendSocialite';
+        if (!($this->files->isWritable($path))) {
+            $this->files->makeDirectory($path, 0755, true ,true);
+        }
+        return  $path . '/' .$this->providerName . '.php';
     }
 
     private function getProviderPath()
     {
-        return dirname(__DIR__) . '/SocialiteProvider/' . $this->providerName .'.php';
+        $path = app_path() . '/Services' . '/LaravelSocialiteApi/SocialiteProvider';
+        if (!($this->files->isWritable($path))) {
+            $this->files->makeDirectory($path, 0755, true ,true);
+        }
+        return  $path . '/' . $this->providerName .'.php';
     }
 }
