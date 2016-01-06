@@ -1,6 +1,6 @@
 <?php
 
-namespace Services\LaravelSocialiteApi\ExtendSocialite;
+namespace {{ base_namespace }}Services\LaravelSocialiteApi\ExtendSocialite;
 
 use SocialiteProviders\Manager\SocialiteWasCalled;
 
@@ -8,7 +8,8 @@ class {{ provider_name }}
 {
     public function handle(SocialiteWasCalled $socialiteWasCalled)
     {
-        $socialiteWasCalled->extendSocialite(snake_case('{{ provider_name }}', '-'), 'Services\LaravelSocialiteApi\SocialiteProvider\{{ provider_name }}');
+    	$provider = '{{ base_namespace }}Services\LaravelSocialiteApi\SocialiteProvider\{{ provider_name }}';
+        $socialiteWasCalled->extendSocialite(snake_case('{{ provider_name }}', '-'), $provider);
     }
 }
 

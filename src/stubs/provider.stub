@@ -1,5 +1,5 @@
 <?php
-namespace Services\LaravelSocialiteApi\SocialiteProvider;
+namespace {{ base_namespace }}Services\LaravelSocialiteApi\SocialiteProvider;
 
 use SocialiteProviders\{{ provider_name }}\Provider;
 

@@ -95,7 +95,7 @@ class SocialiteMakeCommand extends Command
             $stub = $this->files->get(dirname(__DIR__) . '/stubs/extend_socialite.stub');
         }
         $stub = str_replace('{{ provider_name }}', $this->providerName, $stub);
-        
+        $stub = str_replace('{{ base_namespace }}', app()->getNamespace(), $stub);
         return $stub;
     }
 
