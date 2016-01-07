@@ -23,7 +23,8 @@ php artisan list
         laravel-socialite-api:make   providerName    
    
    this will create a new folder 'Services' under app(or your base namespace folder)
-** providerName must follow http://socialiteproviders.github.io/#providers principle
+   
+** providerName must follow http://socialiteproviders.github.io/#providers principle **
 
 ##add event handler and listener to App\Providers\EventServiceProvider $listen property
 
