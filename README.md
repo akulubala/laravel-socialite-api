@@ -22,14 +22,15 @@ php artisan list
         laravel-socialite-api:clear  providerName   
         laravel-socialite-api:make   providerName    
    
+   this will create a new folder 'Services' under app(or your base namespace folder)
 ** providerName must follow http://socialiteproviders.github.io/#providers principle
 
 ##add event handler and listener to App\Providers\EventServiceProvider $listen property
 
 
         'SocialiteProviders\Manager\SocialiteWasCalled' => [
-            'LaravelSocialiteApi\ExtendSocialite\Weibo@handle',
-            'LaravelSocialiteApi\ExtendSocialite\Weixin@handle',
+            'App\LaravelSocialiteApi\ExtendSocialite\Weibo@handle',
+            'App\LaravelSocialiteApi\ExtendSocialite\Weixin@handle',
         ]
 
 ## test
