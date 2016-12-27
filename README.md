@@ -1,6 +1,13 @@
 ##Laravel Socialite api
 This package is aim to retrive user data by access token when use OAuth2 Login, base on Laravel Socialite, useful for client side OAuth login
 
+---
+***notict**:
+
+From laravel 5.2 you don't need this package anymore, because SocialiteProviders support get user by token from 2.0
+
+---
+
 
 ##Install
     composer require ray-cheng/laravel-socialite-api
